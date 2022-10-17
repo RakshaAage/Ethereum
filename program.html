@@ -1,0 +1,129 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>Smart Contracts</title>
+        <link rel="icon" href="./images/Fevicon/smartcont.ico">
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+	</head>
+	<body class="is-preload">
+
+			<div id="wrapper">
+					<header id="header">
+						<h1>Smart Contracts using Solidity </h1><br>
+					</header>
+
+					<div id="main">
+                        <section id="content" class="main">
+                            <h2>Hello World Contract</h2>
+                            <p>pragma solidity ^ 0.5.0;   <br>
+                                // Our first contract is HelloWorld!   <br>
+                                contract HelloWorld   <br>
+                                {  <br>
+                                string private stateVariable = "Hello World!";   <br>
+                                function GetHelloWorld() public view returns (string memory)   <br>
+                                {  <br>
+                                return stateVariable;  <br>
+                                }  <br>
+                                }</p>
+
+                            <h2>Vending Machine Contract</h2>
+                            <p>
+                            // SPDX-License-Identifier: MIT <br>
+                            pragma solidity 0.8.7;  <br>
+
+                            contract VendingMachine {  <br><br>
+
+                                // Declaring state variables of the contract   <br>
+                                address public owner;     <br>
+                                mapping (address => uint) public cupcakeBalances; <br><br>
+
+                                // When 'VendingMachine' contract is deployed:   <br>
+                                // 1. set the deploying address as the owner of the contract  <br>
+                                // 2. set the deployed smart contract's cupcake balance to 50  <br>
+                                constructor() {    <br>
+                                owner = msg.sender;     <br>
+                                cupcakeBalances[address(owner)] = 50;  <br>
+                                }  <br><br>
+
+                                // Allow the owner to increase the smart contract's cupcake balance  <br>
+                                function refill(uint amount) public {  <br>
+                                require(msg.sender == owner, "Only the owner can refill.");   <br>
+                                cupcakeBalances[owner] += amount;   <br>
+                                }  <br><br>
+
+                                // Allow anyone to purchase cupcakes   <br>
+                                function purchase(uint amount) public payable {   <br>
+                                require(msg.value >= amount * 1 ether, "You must pay at least 1 ETH per cupcake");  <br>
+                                require(cupcakeBalances[address(owner)] >= amount, "Not enough cupcakes in stock to complete this purchase");   <br>
+                                cupcakeBalances[address(owner)] -= amount;   <br>
+                                cupcakeBalances[owner] += amount;    <br>
+                                }  <br>
+                            }
+
+                            
+                            <h2>Student Database contract</h2>
+                            <p>// SPDX-License-Identifier: MIT    <br>
+                                pragma solidity ^0.8.7;   <br><br>
+                                
+                                // Build the Contract   <br>
+                                contract MarksManagmtSys   <br>
+                                {<br>
+                                    //structure for student details<br>
+                                    struct Student<br>
+                                    {<br>
+                                        int ID; <br>
+                                        string name;  <br>
+                                        int marks; <br>
+                                    }<br><br>
+                                
+                                    address owner;   <br>
+                                    int public stdCount = 0;  <br>
+                                    mapping(int => Student) public stdRecords;  <br><br>
+                                
+                                    modifier onlyOwner  <br>
+                                    {<br>
+                                        require(owner == msg.sender);  <br>
+                                        _;  <br>
+                                    }<br>
+                                    constructor()<br>
+                                    {<br>
+                                        owner=msg.sender;  <br>
+                                    }<br><br>
+                                
+                                    // Create a function to add the new records <br>
+                                    function addNewRecords(int _ID,  
+                                                        string memory _name,   
+                                                        int _marks) <br> 
+                                            public onlyOwner   <br>
+                                    {<br>
+                                        // Increase the count by 1  <br>
+                                        stdCount = stdCount + 1;   <br> <br>
+                                
+                                        // Fetch the student details with the help of stdCount  <br>
+                                        stdRecords[stdCount] = Student(_ID, _name, _marks);  <br>
+                                    }<br><br>
+                                
+                                    // Create a function to add bonus marks  <br>
+                                    function bonusMarks(int _bonus) public onlyOwner <br>
+                                    {<br>
+                                        stdRecords[stdCount].marks =
+                                                    stdRecords[stdCount].marks + _bonus;   <br>
+                                    }<br>
+                                }<br>
+                            </p>
+                        </section>
+					</div>
+			</div>
+
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrollex.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>

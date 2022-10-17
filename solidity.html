@@ -1,0 +1,129 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>Solidity</title>
+		<link rel="icon" href="./images/Fevicon/solidity.ico">
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+	</head>
+	<body class="is-preload">
+
+			<div id="wrapper">
+					<header id="header">
+						<h1>Smart Contracts </h1><br>
+					</header>
+
+					<div id="main">
+                        <section id="content" class="main">
+                            <h2>Smart Contracts</h2>
+                            <p>Smart Contract is self executing contract which contains the terms and conditions of an agreement between two parties. This agreement facilitates the exchange of anything like money, shares, property. It is also immutable. Most of the Smart Contracts are created using high-level language like "Solidity". </p>
+                            <p>Types of smart contracts :</p>
+                            <ol>
+                                <li>Smart legal contracts : These contracts are legally enforceable. Failure to do so may result legal actions against them.</li>
+                                <li>Decentralized autonomous organisations - These are bound to specific rules coded in blockchain contract combined with governance mechanism.</li>
+                                <li>Application logic contracts - These contracts contain application based code that remains in sync with other blockchain contracts. It enables communication across different devices.</li>
+                            </ol>
+                            <h2>Solidity</h2>
+                            <p>For block chain running platforms, solidity,a high level programming language, is used. The smart contracts that are run using the EVM are written using Solidity. It is a contract oriented and statically typed programming language. It also supports libraries, inheritance, and other user-defined features which tend to be more complex. The language compiles all the instructions into a sandbox of bytecode so that these instructions can be read and interpreted in the ethereum network.</p>
+							<h2>Solidity Programming Concepts</h2>
+							<ol>
+								<li> <b>Pragma:</b>  <br>The first line of any solidity code is a pragma directive which tells that the source code is written for solidity version 0.4.0 	<br>
+									Example: pragma solidity ^0.40; </li> <br>
+
+								<li><b>Variables:</b>  <br>Solidity supports three types of variables : <br>
+									a) <b>State Variables :</b> 
+									Variables whose values are permanently stored in a contract storage.	<br>								
+									b)<b>Local Variables :</b> 
+									Variables whose values are present till function is executing. <br>
+								 	c)<b>Global Variables :</b> 
+									Special variables exist in the global name space used to get information about the blockchain and provide information  transaction properties. <br>
+									Ex : 1) block.gaslimit(uint) - Current block gaslimit  <br>
+									     2)block.number(uint) - Current block number</li>
+							<p>Program:  <br>
+								pragma solidity ^0.5.0;  <br>
+								contract SolidityTest {  <br>
+								uint storedData;   <br>
+								constructor) public {  <br>
+								storedData = 10;  <br>
+								}   <br>
+								function getResult() public view returns (uint){ uint a = 1; // local variable <br>
+								uint b = 2;   <br>
+								uint result = a+b;   <br>
+								return storedData; //access the state variable  <br>
+							</p> 
+
+							<li><b>Access Modifiers:</b>  <br> Access Modifiers are the keywords used to specify the declared accessibility of a function or a type.</li>
+							<ol>There are four access modifiers available in Solidity
+								<li><b>Public:</b>  <br> The Public element can be inherited and can be accessed by external elements. All can access a public element.</li>
+								<li><b>Private: </b> <br> The Private element doesn't get inherited and can't be accessed by external elements. It can beaccessed from the current contract instance only.</li>
+								<li><b>Internal:</b>  <br> The Internal element can be inherited but can't be accessed by external elements. Only the base contract and derived contract can access internal element.</li>
+								<li><b>External: </b> <br> The External element can't be inherited but it can be accessed by external elements. Current contract instance can't access external element, it can be accessed externally only.</li>
+							</ol>
+
+							<li><b>Enums : </b> <br>Enum is a way to create user define types, it is used to assign names to integrate constants, which makes the contract more edible and maintenable. Options in enum are represented by subsequent unsigned integer values starting from 0.</li>
+							<br>
+							<li><b>Arrays: </b> <br> 
+								<ul> 
+									<li>Syntax to declare an array of fixed size in solidity -  <br>
+										type arrayName [ arraySize];</li>
+									<li>Syntax declare and array of dynamic size in solidity-  <br>
+										type [] arrayName ; </li>	
+									<li>Initialising arrays-  <br>
+										Arrays can be initialised by specifying values separated by commas in square brackets. <br>
+									    unit balance[]=[1,2,3]</li>	
+									<li>Accessing array elements- <br>
+										An element is accessed by indexing the array name. <br>
+										Eg : uint salary =balance[2];</li>	
+								</ul> 
+							</li>	
+
+							<li><b>Structs:</b>  <br>
+								<ul><li>Defining a struct -
+								For defining a struct we must use the struct keyword. <br>
+								Syntax - struct struct_name{  <br>
+										type1 type_name_1;    <br>
+										type2 type_name_2;     <br>
+								 } </li>
+								
+									<li>Accessing a Struct and its variable - <br>
+										We use the member access operator (.) to access any member of a structure. <br>
+										Syntax - structure_variable_name. structure_member
+									</li>
+								</ul>
+							</li>  
+
+							<li><b>Mapping:</b>  <br>Mapping is a reference type as arrays and structs. <br>
+								Syntax to declare a mapping type -  <br>
+								mapping(_keyType => _Value Type)
+							</li> <br>
+
+							<li><b>Functions: </b> <br> Before we use a function we need to define it. The most common way to define a function in Solidity is by using the 'function' keyword, followed by a unique function name, a list of parameters, and a statement block surrounded by curly braces.
+								<br> Syntax:  <br>
+								function function-name(parameter-list) scope returns(){ <br> //statements <br> } <br>
+								<h4>There are three types of functions :</h4>
+								<ol>
+									<li><b>View functions</b>  : View functions ensure that they will not modify the state.
+										If in the function any statement is considered modifying the state then the compiler will throw a warning.</li>
+									<li><b>Pure functions</b>  : Pure functions insure that they not read or modified the state if in the function any statements are considered reading the state then the compiler with throw a warning.</li>	
+									<li><b>Fallback functions</b> : The solidity fallback function is executed if none of the other functions match the function identifier or no data was provided with the function call.It will throw an Exception if no such function exists.</li>
+								</ol>
+							</li>
+
+							<li><b>Constructor:</b> <br> A Constructor is defined using a constructor keyword without any function name followed by an access modifier. It’s an optional function which initializes state variables of the contract. <br>
+								Syntax:  constructor() <Access Modifier> {  }
+							</li>
+						</section>
+					</div>
+			</div>
+
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrollex.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>
