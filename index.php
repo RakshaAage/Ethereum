@@ -49,7 +49,7 @@
 											<li><a href="block.html" class="button">Learn More</a></li>
 										</ul>
 									</div>
-									<span class="image"><img src="images/bc.jpg" alt="blockchain image" /></span>
+									<span class="image"><img class="responsive" src="images/bc.jpg" alt="blockchain image" /></span>
 								</div>
 							</section>
 
