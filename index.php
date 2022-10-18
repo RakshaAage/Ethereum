@@ -14,7 +14,7 @@
 
 				<!-- Header -->
 					<header id="header" class="alt">
-						<p class="logo"><img src="images/Ethereum-Logo-PNG-Pic.png" alt="ethereum"/></p>
+						<p class="logo"><img src="images/Ethereum-Logo-PNG-Pic.png" alt="ethereum" class="responsive"; /></p>
 						<h1 style="font-size: 69px;">ETHEREUM</h1><br>
 						<p style="font-size: 36px;">The technical side of ethereum's efficacy is 100% an engineering exercise  -  Vitalik Buterin<br />
 						</p>

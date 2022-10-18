@@ -1957,6 +1957,10 @@ input, select, textarea {
 		padding-left: 150px;
 		height: 300px;
 	}
+	.responsive{
+		width: 100%;
+		height: auto;
+	}
 
 /* List */
 
