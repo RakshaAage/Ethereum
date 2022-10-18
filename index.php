@@ -38,7 +38,7 @@
 								<div class="spotlight">
 									<div class="content">
 										<header class="major">
-											<h2 style="padding-left: 250px;">Blockchain</h2>
+											<h2 style="align-text:centre;">Blockchain</h2>
 										</header>
 										<p>Blockchain is a distributed, decentalized, immutable ledger that stores the record of ownership of digital assests in a business network.
 											It is mechanism enabling the secure transfer of assets without any need of intermediary. Blockchain is a technology that facilitates the digital exchange of units of value. 
