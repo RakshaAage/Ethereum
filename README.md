@@ -1,2 +1,2 @@
 # Ethereum
-https://ethereum-blockchain.herokuapp.com/
+https://rakshaaage.github.io/Ethereum/
